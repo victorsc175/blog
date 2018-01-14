@@ -13,3 +13,142 @@
  *= require_tree .
  *= require_self
  */
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html *
+{
+   font-family: Arial !important;
+}
+
+body
+{
+	background-color: white;
+}
+
+h1
+{
+	font-size: 34px;
+	color: #CC0000;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#main
+{
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+header ul
+{
+	list-style-type: none;
+	margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+header li {
+    float: left;
+}
+
+header li a {
+    display: block;
+    font-size: 90%;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+header li a:hover {
+    background-color: #111111;
+}
+
+footer
+{
+	margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+footer p
+{
+	display: block;
+	font-size: 90%;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+article
+{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+article p.author
+{
+	color: #CC0000;
+}
+
+article p.description
+{
+	color: #333333;
+	font-size: 90%;
+}
+
+article a
+{
+	color: #006ADA;
+	font-size: 110%;
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+article a:hover, article a:visited:hover
+{
+	color: #1A41DC;
+}
+
+article a:visited
+{
+	color: #006ADA;
+}
+
+#announce p
+{
+	font-size: 95%;
+	color: #333333;
+}
+
+#about p
+{
+	font-size: 90%;
+	color: #333333;
+	display: block;
+	padding-top: 5px;
+}
+
+#about ul
+{
+	list-style-type: none;
+	margin: 30px;
+}
+
+#about li
+{
+	font-size: 80%;
+	font-family: Helvetica Arial;
+	color: #333333;
+	display: block;
+	padding-top: 3px;
+}
