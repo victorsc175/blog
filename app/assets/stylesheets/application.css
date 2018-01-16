@@ -32,7 +32,7 @@ body
 
 .frame-line
 {
-	height: 5px;
+	height: 3px;
 	background-color: #CC0000;
 }
 
@@ -75,7 +75,7 @@ header ul li a {
     font-size: 95%;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 7px;
     text-decoration: none;
 }
 
@@ -96,7 +96,7 @@ footer p
 	display: block;
 	font-size: 80%;
     color: white;
-    padding: 10px;
+    padding: 7px;
     padding-left: 10%;
     text-decoration: none;
 }
@@ -111,6 +111,7 @@ footer p
 {
 	color: #CC0000;
 	font-size: 90%;
+	font-family: Verdana, Arial;
 }
 
 #main article p.description
@@ -161,7 +162,7 @@ footer p
 #main #about ul li
 {
 	font-size: 80%;
-	font-family: Helvetica Arial;
+	font-family: Verdana, Arial;
 	color: #333333;
 	display: block;
 	padding-top: 3px;
