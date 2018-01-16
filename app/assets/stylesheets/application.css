@@ -22,7 +22,7 @@
 
 html *
 {
-   font-family: Arial !important;
+   font-family: Arial;
 }
 
 body
@@ -30,15 +30,28 @@ body
 	background-color: white;
 }
 
+.frame-line
+{
+	height: 3px;
+	background-color: #CC0000;
+}
+
 h1
 {
-	font-size: 34px;
 	color: #CC0000;
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
 
-#main
+h2
+{
+	color: #CC0000;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-family: Verdana, Geneva, Arial;
+}
+
+#main, h1
 {
 	padding-left: 10%;
 	padding-right: 10%;
@@ -51,6 +64,7 @@ header ul
     padding: 0;
     overflow: hidden;
     background-color: #333333;
+    padding-left: 10%;
 }
 
 header li {
@@ -59,10 +73,10 @@ header li {
 
 header li a {
     display: block;
-    font-size: 90%;
+    font-size: 95%;
     color: white;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     text-decoration: none;
 }
 
@@ -83,8 +97,8 @@ footer p
 	display: block;
 	font-size: 90%;
     color: white;
-    text-align: center;
-    padding: 15px;
+    padding: 10px;
+    padding-left: 10%;
     text-decoration: none;
 }
 
@@ -108,7 +122,7 @@ article p.description
 article a
 {
 	color: #006ADA;
-	font-size: 110%;
+	font-size: 100%;
 	display: block;
 	padding-top: 5px;
 	padding-bottom: 5px;
