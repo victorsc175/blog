@@ -32,26 +32,25 @@ body
 
 .frame-line
 {
-	height: 3px;
+	height: 5px;
 	background-color: #CC0000;
 }
 
-h1
+header h1
 {
 	color: #CC0000;
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
 
-h2
+#main h2
 {
-	color: #CC0000;
+	color: #333333;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	font-family: Verdana, Geneva, Arial;
 }
 
-#main, h1
+#main, header h1
 {
 	padding-left: 10%;
 	padding-right: 10%;
@@ -67,11 +66,11 @@ header ul
     padding-left: 10%;
 }
 
-header li {
+header ul li {
     float: left;
 }
 
-header li a {
+header ul li a {
     display: block;
     font-size: 95%;
     color: white;
@@ -80,7 +79,7 @@ header li a {
     text-decoration: none;
 }
 
-header li a:hover {
+header ul li a:hover {
     background-color: #111111;
 }
 
@@ -95,31 +94,32 @@ footer
 footer p
 {
 	display: block;
-	font-size: 90%;
+	font-size: 80%;
     color: white;
     padding: 10px;
     padding-left: 10%;
     text-decoration: none;
 }
 
-article
+#main article
 {
 	margin-top: 30px;
 	margin-bottom: 30px;
 }
 
-article p.author
+#main article p.author
 {
 	color: #CC0000;
+	font-size: 90%;
 }
 
-article p.description
+#main article p.description
 {
 	color: #333333;
 	font-size: 90%;
 }
 
-article a
+#main article a
 {
 	color: #006ADA;
 	font-size: 100%;
@@ -128,23 +128,23 @@ article a
 	padding-bottom: 5px;
 }
 
-article a:hover, article a:visited:hover
+#main article a:hover, article a:visited:hover
 {
 	color: #1A41DC;
 }
 
-article a:visited
+#main article a:visited
 {
 	color: #006ADA;
 }
 
-#announce p
+#main #announce p
 {
 	font-size: 95%;
 	color: #333333;
 }
 
-#about p
+#main #about p
 {
 	font-size: 90%;
 	color: #333333;
@@ -152,13 +152,13 @@ article a:visited
 	padding-top: 5px;
 }
 
-#about ul
+#main #about ul
 {
 	list-style-type: none;
 	margin: 30px;
 }
 
-#about li
+#main #about ul li
 {
 	font-size: 80%;
 	font-family: Helvetica Arial;
