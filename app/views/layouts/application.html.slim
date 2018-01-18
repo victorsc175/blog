@@ -7,18 +7,7 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    header
-      h1 Ruby News and Articles
-      ul
-        li 
-          = link_to 'Home', controller: 'home', action: 'index' 
-        li 
-          = link_to 'About', controller: 'home', action: 'about' 
-      .frame-line
+    = render partial: 'shared/header'
     #main
       = yield
-    footer
-      .frame-line
-      p
-        | Published by Cooperpress.
-          Our privacy and anti-spam policies. We take both seriously.
+    = render partial: 'shared/footer'
