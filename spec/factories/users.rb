@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-    email "MyString"
+    name "Some Name"
+    email "some@email.com"
     moderator false
     creator false
     disactive false

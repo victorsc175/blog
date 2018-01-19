@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :post do
-    title "MyString"
-    body "MyText"
+    title "Title"
+    body "Text Body"
     user nil
     disactive false
   end

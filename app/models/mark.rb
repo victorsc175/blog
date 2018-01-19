@@ -4,7 +4,7 @@ class Mark < ApplicationRecord
     validates :user
     validates :post
   end
-  validates :user, uniqueness: { scope: :post }
+  validates_uniqueness_of :user, scope: :post_id
   belongs_to :user
   belongs_to :post
 end
