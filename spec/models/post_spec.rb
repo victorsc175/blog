@@ -16,5 +16,9 @@ RSpec.describe Post, type: :model do
     end
   
     it { should belong_to :user }
+    
+    it { should have_many(:comments) }
+    
+    it { should have_many(:marks) }
   end
 end

@@ -28,5 +28,11 @@ RSpec.describe User, type: :model do
     it { should allow_value('some@mail.com').for(:email) }
     
     it { should_not allow_value('somemail.com').for(:email) }
+    
+    it { should have_many(:posts) }
+    
+    it { should have_many(:comments) }
+    
+    it { should have_many(:marks) }
   end
 end

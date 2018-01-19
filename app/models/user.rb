@@ -7,4 +7,7 @@ class User < ApplicationRecord
                     uniqueness: true,
                     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
                               message: 'Invalid email' }
+  has_many :posts
+  has_many :comments
+  has_many :marks
 end
