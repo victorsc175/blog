@@ -16,8 +16,8 @@ module BlogDataFaker
         set_moderators
         users = User.all
         POSTS.times { post(title, paragraphs(PARAGRAPHS),users.sample).save }
+        COMMENTS.times { comment(users.sample).save }
         posts = Post.all
-        COMMENTS.times { comment(users.sample, posts.sample).save }
         MARKS.times { mark(users.sample, posts.sample).save }
       end
 
@@ -58,9 +58,17 @@ module BlogDataFaker
         Post.new title: title, body: body, user: user
       end
 
-      def comment(user, post)
+      def comment(user)
         body = FFaker::Lorem.paragraph
-        Comment.new body: body, user: user, post: post
+        commentable_item = commentable
+        c = Comment.new body: body,
+                    user: user,
+                    commentable_id: commentable_item.id,
+                    commentable_type: commentable_item.class.to_s
+      end
+      
+      def commentable
+        [User.all, Post.all].sample.sample
       end
 
       def mark(user, post)
