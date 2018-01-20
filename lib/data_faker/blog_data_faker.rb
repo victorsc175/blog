@@ -35,13 +35,9 @@ module BlogDataFaker
         username = FFaker::Name.name
         User.new name: username, email: email(username)
       end
-      
-      def login(username)
-        username.downcase.split.join('.')
-      end
 
       def email(username)
-        login(username) +
+        username.downcase.split.join('.') +
         '@' +
         FFaker::Company.bs.split.first +
         '.com'
