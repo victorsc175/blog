@@ -31,6 +31,23 @@
         1,
         null
       ],
+      "/home/victor/Documents/Aptana Studio 3 Workspace/blog/app/models/user.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
       "/home/victor/Documents/Aptana Studio 3 Workspace/blog/app/models/mark.rb": [
         1,
         1,
@@ -42,23 +59,6 @@
       "/home/victor/Documents/Aptana Studio 3 Workspace/blog/app/models/post.rb": [
         1,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/home/victor/Documents/Aptana Studio 3 Workspace/blog/app/models/user.rb": [
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
         1,
         1,
         1,
@@ -179,6 +179,6 @@
         0
       ]
     },
-    "timestamp": 1516476516
+    "timestamp": 1516477021
   }
 }
