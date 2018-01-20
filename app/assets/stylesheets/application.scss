@@ -1,0 +1,177 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html * {
+   font-family: Arial;
+}
+
+.frame-line {
+  height: 3px;
+  background-color: #CC0000;
+}
+
+body {
+  
+	background-color: white;
+	
+	header {
+	  
+	  h1 {
+      color: #CC0000;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  
+    ul {
+      
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333333;
+      padding-left: 10%;
+      
+      li {
+        
+        float: left;
+        
+        a {
+          display: block;
+          font-size: 95%;
+          color: white;
+          text-align: center;
+          padding: 7px;
+          text-decoration: none;
+        }
+
+        a:hover {
+          background-color: #111111;
+        }
+        
+      }      
+    }
+  }
+  
+  
+  #main {
+    
+    h2 {
+      color: #333333;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  
+    article {
+      
+      margin-top: 30px;
+      margin-bottom: 30px;
+      
+      p.author {
+        color: #CC0000;
+        font-size: 90%;
+        font-family: Verdana, Arial;
+      }
+
+      p.description {
+        color: #333333;
+        font-size: 90%;
+      }
+
+      a {
+        color: #006ADA;
+        font-size: 100%;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      a:hover, a:visited:hover {
+        color: #1A41DC;
+      }
+
+      a:visited {
+        color: #006ADA;
+      }
+        
+    }
+
+    #announce {
+      
+      p {
+        font-size: 95%;
+        color: #333333;
+      }
+      
+    }
+
+    #about {
+      
+      p {
+        font-size: 90%;
+        color: #333333;
+        display: block;
+        padding-top: 5px;
+      }
+    
+      ul {
+        
+        list-style-type: none;
+        margin: 30px;
+      
+        li {
+          font-size: 80%;
+          font-family: Verdana, Arial;
+          color: #333333;
+          display: block;
+          padding-top: 3px;
+        }
+      }
+    }
+  }
+  
+  footer {
+    
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+  
+    p {
+      display: block;
+      font-size: 80%;
+      color: white;
+      padding: 7px;
+      padding-left: 10%;
+      text-decoration: none;
+    }
+  }
+}
+
+#main, header h1
+{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+
+
+
