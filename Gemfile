@@ -56,4 +56,5 @@ group :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', require: false
+  gem 'simplecov', require: false
 end
