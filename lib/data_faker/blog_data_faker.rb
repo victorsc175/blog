@@ -1,27 +1,23 @@
 module BlogDataFaker
   class Builder
-    AMOUNT_OF_USERS = 10
-    AMOUNT_OF_POSTS = 15
-    AMOUNT_OF_PARAGRAPHS = 3
-    AMOUNT_OF_COMMENTS = 30
-    AMOUNT_OF_MARKS = 30
+    USERS = 10
+    POSTS = 15
+    PARAGRAPHS = 3
+    COMMENTS = 30
+    MARKS = 30
+    CREATORS = 7
+    MODERATORS = 2
     class << self
       def create_data
         destroy_old_data
-        AMOUNT_OF_USERS.times { user.save }
+        USERS.times { user.save }
+        set_creators
+        set_moderators
         users = User.all
-        AMOUNT_OF_POSTS.times do
-          post(title,
-               paragraphs(AMOUNT_OF_PARAGRAPHS),
-               users.sample).save
-        end
+        POSTS.times { post(title, paragraphs(PARAGRAPHS),users.sample).save }
         posts = Post.all
-        AMOUNT_OF_COMMENTS.times do
-          comment(users.sample, posts.sample).save
-        end
-        AMOUNT_OF_MARKS.times do
-          mark(users.sample, posts.sample).save
-        end
+        COMMENTS.times { comment(users.sample, posts.sample).save }
+        MARKS.times { mark(users.sample, posts.sample).save }
       end
 
       def destroy_old_data
@@ -69,6 +65,14 @@ module BlogDataFaker
       def mark(user, post)
         value = (3..5).to_a.sample
         Mark.new value: value, user: user, post: post
+      end
+      
+      def set_creators
+        User.first(CREATORS).each { |u| u.update creator: true }
+      end
+      
+      def set_moderators
+        User.first(MODERATORS).each { |u| u.update moderator: true }
       end
     end
   end
