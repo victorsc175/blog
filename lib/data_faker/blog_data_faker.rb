@@ -4,6 +4,7 @@ module BlogDataFaker
     POSTS = 15
     PARAGRAPHS = 3
     COMMENTS = 30
+    COMMENTS_RANGE = 3..5
     MARKS = 30
     CREATORS = 7
     MODERATORS = 2
@@ -63,7 +64,7 @@ module BlogDataFaker
       end
 
       def mark(user, post)
-        value = (3..5).to_a.sample
+        value = COMMENTS_RANGE.to_a.sample
         Mark.new value: value, user: user, post: post
       end
       
