@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :marks
   has_many :commented_posts, through: :comments, source: :commentable, source_type: :Post
   has_many :commented_users, through: :comments, source: :commentable, source_type: :User
+  has_one :seo, as: :seoable
 end
