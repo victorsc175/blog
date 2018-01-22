@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    body "MyText"
+    body 'MyText'
     user nil
     commentable nil
     disactive false

@@ -1,3 +1,4 @@
+# Blog comment class
 class Comment < ApplicationRecord
   validates :body, :user, :commentable, presence: true
   belongs_to :user, counter_cache: true

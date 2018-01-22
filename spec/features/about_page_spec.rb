@@ -5,7 +5,7 @@ feature 'About page' do
     visit('/about')
     expect(page).to have_content('About Us')
   end
-  
+
   scenario 'Visit About page' do
     visit('/')
     click_link 'About'
