@@ -21,4 +21,16 @@ RSpec.describe Post, type: :model do
     
     it { should have_many(:marks) }
   end
+  
+  describe 'class methods' do
+    describe '.created_by' do
+      it 'returns role members' do
+        moderator1 = FactoryGirl.create(:user, name: 'mod1', email: 'some1@email.com', moderator: true)
+        moderator2 = FactoryGirl.create(:user, name: 'mod2', email: 'some2@email.com', moderator: true)
+        post1 = FactoryGirl.create(:post, user: moderator1)
+        post2 = FactoryGirl.create(:post, user: moderator2, title: 'New title')
+        expect(described_class.created_by(:moderator).size).to eq(2)
+      end
+    end
+  end
 end
