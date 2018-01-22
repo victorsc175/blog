@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :seo do
-    title 'MyString'
-    keywords 'MyString'
-    description 'MyString'
+    title 'Title'
+    keywords 'Keywords'
+    description 'Description'
     seoable nil
   end
 end

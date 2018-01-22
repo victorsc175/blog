@@ -17,7 +17,7 @@ RSpec.describe Mark, type: :model do
     let(:mark1) { FactoryGirl.create(:mark, user: user, post: post) }
     let(:mark2) { Mark.new(mark1.attributes) }
 
-    it 'should validate_uniqueness_of(:user).scoped_to(:post)' do
+    it 'should validate_uniqueness of user scoped to post' do
       expect(mark2.valid?).to be false
     end
   end
