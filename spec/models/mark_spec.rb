@@ -12,10 +12,12 @@ RSpec.describe Mark, type: :model do
 
     it { should belong_to :post }
 
+    let(:user) { FactoryGirl.create(:user) }
+    let(:post) { FactoryGirl.create(:post, user: user) }
+    let(:mark1) { FactoryGirl.create(:mark, user: user, post: post) }
+    let(:mark2) { Mark.new(mark1.attributes) }
+
     it 'should validate_uniqueness_of(:user).scoped_to(:post)' do
-      user = FactoryGirl.create(:user)
-      mark1 = Mark.create(value: 5, user: user, post: Post.first)
-      mark2 = Mark.new(mark1.attributes)
       expect(mark2.valid?).to be false
     end
   end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :mark do
-    value 1
+    value 5
     user nil
     post nil
     disactive false
