@@ -24,7 +24,7 @@ RSpec.describe Post, type: :model do
   
   describe 'class methods' do
     describe '.created_by' do
-      it 'returns role members' do
+      it 'returns only posts whic belong to role members' do
         moderator1 = FactoryGirl.create(:user, name: 'mod1', email: 'some1@email.com', moderator: true)
         moderator2 = FactoryGirl.create(:user, name: 'mod2', email: 'some2@email.com', moderator: true)
         post1 = FactoryGirl.create(:post, user: moderator1)

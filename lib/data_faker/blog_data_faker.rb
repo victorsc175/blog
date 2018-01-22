@@ -4,11 +4,14 @@ module BlogDataFaker
     POSTS = 15
     PARAGRAPHS = 10
     COMMENTS = 30
-    COMMENTS_RANGE = 3..5
+    MARKS_RANGE = 3..5
     MARKS = 30
     CREATORS = 7
     MODERATORS = 2
     SEO_KEYWORDS = 4
+    CLEAR_DATA = [Seo, Mark, Comment, Post, User]
+    SEO_META_SIZE = 160
+    
     class << self
       def create_data
         destroy_old_data
@@ -19,25 +22,12 @@ module BlogDataFaker
         POSTS.times { post(title, paragraphs(PARAGRAPHS),users.sample).save! }
         COMMENTS.times { comment(users.sample).save! }
         posts = Post.all
-        MARKS.times do
-          begin
-            mark(users.sample, posts.sample).save!
-          rescue
-            puts "Mark already exists, skipped"
-          end
-        end
-        (users + posts).each do |item|
-          item.build_seo(seo.attributes)
-          item.seo.save!
-        end
+        MARKS.times { mark(users.sample, posts.sample).save }
+        (users + posts).each { |i| i.create_seo(seo.attributes)}
       end
 
       def destroy_old_data
-        Seo.destroy_all
-        Mark.destroy_all
-        Comment.destroy_all
-        Post.destroy_all
-        User.destroy_all
+        CLEAR_DATA.each { |c| c.destroy_all }
       end
 
       def user
@@ -82,7 +72,7 @@ module BlogDataFaker
       end
 
       def mark(user, post)
-        value = COMMENTS_RANGE.to_a.sample
+        value = MARKS_RANGE.to_a.sample
         Mark.new value: value, user: user, post: post
       end
       
@@ -96,7 +86,7 @@ module BlogDataFaker
       
       def seo
         Seo.new title: FFaker::Lorem.sentence,
-                description: FFaker::Lorem.paragraph(1)[0...160],
+                description: FFaker::Lorem.paragraph(1)[0...SEO_META_SIZE],
                 keywords: FFaker::Lorem.words(SEO_KEYWORDS)  
       end
     end
