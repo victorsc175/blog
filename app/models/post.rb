@@ -9,6 +9,10 @@ class Post < ApplicationRecord
   
   # Use symbol like :moderator 
   def self.created_by(role)
-    find(User.where(role => true).pluck(:id))
+    # fastest
+    joins(:user).where(users: { role => true })
+    # another options:
+    # includes(:user).where(users: { role => true })
+    # where(user_id: User.where(role => true).pluck(:id))
   end
 end

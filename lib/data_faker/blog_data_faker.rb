@@ -11,14 +11,16 @@ module BlogDataFaker
     class << self
       def create_data
         destroy_old_data
-        USERS.times { user.save }
+        USERS.times { user.save! }
         set_creators
         set_moderators
         users = User.all
-        POSTS.times { post(title, paragraphs(PARAGRAPHS),users.sample).save }
-        COMMENTS.times { comment(users.sample).save }
+        POSTS.times { post(title, paragraphs(PARAGRAPHS),users.sample).save! }
+        COMMENTS.times { comment(users.sample).save! }
         posts = Post.all
-        MARKS.times { mark(users.sample, posts.sample).save }
+        MARKS.times { mark(users.sample, posts.sample).save! }
+      rescue => e
+        puts "Unable create object, skipped: #{e}"
       end
 
       def destroy_old_data
