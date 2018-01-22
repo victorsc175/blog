@@ -2,12 +2,13 @@ module BlogDataFaker
   class Builder
     USERS = 10
     POSTS = 15
-    PARAGRAPHS = 3
+    PARAGRAPHS = 10
     COMMENTS = 30
     COMMENTS_RANGE = 3..5
     MARKS = 30
     CREATORS = 7
     MODERATORS = 2
+    SEO_KEYWORDS = 4
     class << self
       def create_data
         destroy_old_data
@@ -18,12 +19,21 @@ module BlogDataFaker
         POSTS.times { post(title, paragraphs(PARAGRAPHS),users.sample).save! }
         COMMENTS.times { comment(users.sample).save! }
         posts = Post.all
-        MARKS.times { mark(users.sample, posts.sample).save! }
-      rescue => e
-        puts "Unable create object, skipped: #{e}"
+        MARKS.times do
+          begin
+            mark(users.sample, posts.sample).save!
+          rescue
+            puts "Mark already exists, skipped"
+          end
+        end
+        (users + posts).each do |item|
+          item.build_seo(seo.attributes)
+          item.seo.save!
+        end
       end
 
       def destroy_old_data
+        Seo.destroy_all
         Mark.destroy_all
         Comment.destroy_all
         Post.destroy_all
@@ -47,9 +57,7 @@ module BlogDataFaker
       end
 
       def paragraphs(size)
-        paragraphs = []
-        size.times { paragraphs += FFaker::Lorem.paragraphs }
-        paragraphs.flatten * ' '
+        FFaker::Lorem.paragraphs(size) * ' '
       end
 
       def title
@@ -84,6 +92,12 @@ module BlogDataFaker
       
       def set_moderators
         User.first(MODERATORS).each { |u| u.update moderator: true }
+      end
+      
+      def seo
+        Seo.new title: FFaker::Lorem.sentence,
+                description: FFaker::Lorem.paragraph(1)[0...160],
+                keywords: FFaker::Lorem.words(SEO_KEYWORDS)  
       end
     end
   end
