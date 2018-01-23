@@ -13,6 +13,7 @@ class Post < ApplicationRecord
     # fastest
     joins(:user).where(users: { role => true })
     # another options:
+    # scope :created_by, ->(role) { joins(:user).where(users: { role => true }) }
     # includes(:user).where(users: { role => true })
     # where(user_id: User.where(role => true).pluck(:id))
   end
