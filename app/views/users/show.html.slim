@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @user.name
+p
+  strong Email:
+  = @user.email
+p
+  strong Moderator:
+  = @user.moderator
+p
+  strong Creator:
+  = @user.creator
+p
+  strong Disactive:
+  = @user.disactive
+p
+  strong Comments count:
+  = @user.comments_count
+p
+  strong Posts count:
+  = @user.posts_count
+
+=> link_to 'Edit', edit_user_path(@user)
+'|
+=< link_to 'Back', users_path
