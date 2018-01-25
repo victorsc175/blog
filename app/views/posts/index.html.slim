@@ -16,7 +16,7 @@ table
       tr
         td = post.title
         td = post.body
-        td = post.user
+        td = post.user.name
         td = post.disactive
         td = link_to 'Show', post
         td = link_to 'Edit', edit_post_path(post)
@@ -25,3 +25,5 @@ table
 br
 
 = link_to 'New Post', new_post_path
+p
+  = paginate @posts

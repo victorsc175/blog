@@ -12,6 +12,14 @@ p
 p
   strong Disactive:
   = @post.disactive
+p
+  strong Comments:
+  table
+    - @post.comments.order(:created_at).each do |comment|
+      tr
+        td
+          b = comment.user.name
+        td = comment.body
 
 => link_to 'Edit', edit_post_path(@post)
 '|
