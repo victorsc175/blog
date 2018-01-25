@@ -1,12 +1,12 @@
 module BlogDataFaker
   # Populate blog fake data
   class Builder
-    USERS = 10
-    POSTS = 15
-    PARAGRAPHS = 10
-    COMMENTS = 30
-    MARKS_RANGE = 3..5
-    MARKS = 30
+    USERS = 20
+    POSTS = 50
+    PARAGRAPHS = 20
+    COMMENTS = 1000
+    MARKS_RANGE = 1..5
+    MARKS = 100
     CREATORS = 7
     MODERATORS = 2
     SEO_KEYWORDS = 4

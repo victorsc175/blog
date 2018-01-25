@@ -102,7 +102,7 @@ body {
     article {
       
       margin-top: 30px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       
       p.author {
         color: $main_color;
@@ -113,6 +113,21 @@ body {
       p.description {
         color: $text_color;
         font-size: 90%;
+      }
+      
+      p.fulltext {
+        color: $text_color;
+        font-size: 90%;
+        display: block;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        line-height: 135%;
+      }
+      
+      p.date {
+        color: $text_color;
+        font-family: $details_font, $main_font;
+        font-size: 80%;
       }
 
       a {
@@ -130,7 +145,77 @@ body {
       a:visited {
         color: $link_visited_color;
       }
-        
+    }
+    
+    controls {
+      a {
+        color: $link_color;
+        font-size: 90%;
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      a:hover, a:visited:hover {
+        color: $link_hover_color;
+      }
+
+      a:visited {
+        color: $link_visited_color;
+      }
+      
+      p.status {
+        color: $text_color;
+        font-size: 90%;
+        display: inline-block;
+        padding-left: 5px;
+      }
+    }
+    
+    controls common {
+      
+      text-align: center;
+      color: $text_color;
+      font-size: 100%;
+      
+      a {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    
+    comments {
+      
+      font-size: 90%;
+      
+      p strong {
+        color: $text_color;
+        font-size: 100%;
+        text-weigth: bold;
+        display: block;
+        padding: 10px;
+      }
+      
+      author {
+        color: $main_color;
+        display: inline-block;
+        padding: 10px;
+        font-family: $details_font, $main_font;
+      }
+      
+      date {
+        color: $text_color;
+        font-size: 75%;
+        display: inline-block;
+        font-family: $details_font, $main_font;
+      }
+      
+      comment {
+        color: $text_color;
+        display: block;
+        font-style: italic;
+        padding-bottom: 10px;
+      }
     }
 
     #announce {

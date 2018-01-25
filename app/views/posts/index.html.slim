@@ -1,21 +1,14 @@
-h1 Listing posts
+h2 Listing posts
 
-table
-  thead
-    tr
-      th Title
-      th Body
-      th User
-      th Disactive
-      th
-      th
-      th
+#announce
+  p You can manage posts below
 
-  tbody
-    = render partial: 'post', collection: @posts
+= render partial: 'post', collection: @posts
 
 br
 
-= link_to 'New Post', new_post_path
-p
-  = paginate @posts
+controls
+  common
+    = link_to 'New Post', new_post_path
+
+    = paginate @posts

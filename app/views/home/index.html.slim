@@ -5,39 +5,4 @@ h2 Latest News
   p Ruby Weekly
   p Issue 381 — January 11, 2018
 
-article
-  p.author Yui Naruse
-  = link_to 'Ruby 2.5 Released: A Faster Step Forward', 'https://www.ruby-lang.org/en/news/2017/12/25/ruby-2-5-0-released/'
-  p.description It’s 5-10% faster than 2.4, rescue/else/ensure can now be used directly on blocks, hashes get new transform_keys & slice methods, pp.rb is loaded by default, ERB is 2x faster, and.. a lot more.
-
-article
-  p.author Noah Gibbs
-  = link_to 'Ruby 3 and JIT: Where, When and How Fast?', 'http://engineering.appfolio.com/appfolio-engineering/2017/12/26/ruby-3-and-jit-where-when-and-how-fast'
-  p.description The story and status of Just-In-Time compilation in Ruby 3 along with preliminary benchmarks.
-
-article
-  p.author Basecamp
-  = link_to 'Stimulus: A JS Framework for the HTML You Already Make', 'https://github.com/stimulusjs/stimulus'
-  p.description From Basecamp comes a new JavaScript framework well suited for Rails apps. Rather than replace your HTML or rendering mechanisms, Stimulus augments existing HTML with functionality.
-
-article
-  p.author FormAPI  Sponsored
-  = link_to 'Generate PDFs from Rails', 'https://formapi.io/'
-  p.description FormAPI is the easiest way to fill out contracts, tax forms, or any other PDFs. Much easier than Prawn. Use our template editor to configure field positions and types (text, date, checkbox, image, signature, etc.) POST data, then download your PDF.
-
-article
-  p.author Scout Blog
-  = link_to 'Deploying to AWS: Running a Rails App on Fargate', 'http://blog.scoutapp.com/articles/2018/01/08/deploying-to-aws-part-i-running-a-rails-app-on-fargate'
-  p.description AWS Fargate lets you easily run containers on AWS without having to manage underlying container host VM instances.
-
-article
-  p.author Thomas Leitner
-  = link_to 'Some Initial Ruby 2.5 Benchmarks', 'https://gettalong.org/blog/2017/benchmarking-ruby-2-5.html'
-  p.description Three HexaPDF benchmarks vs 2.3 and 2.4. 2.5 shows good progress.
-
-article
-  p.author Prathamesh Sonpatki
-  = link_to 'Ruby 2.5 Enumerable Predicates Accept Pattern Argument', 'https://blog.bigbinary.com/2018/01/02/ruby-2-5-enumerable-predicates-accept-pattern-argument.html'
-  p.description all?, any?, one? and none? methods can now accept a single pattern argument and perform case equality using it. This may end up coming to ‘select’ and ‘reject’ too.
-
-
+= render partial: 'post', collection: @posts
