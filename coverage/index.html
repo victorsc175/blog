@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-01-23T13:13:25+02:00">2018-01-23T13:13:25+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-01-23T15:55:12+02:00">2018-01-23T15:55:12+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -153,7 +153,7 @@
       <tr>
         <td class="strong"><a href="#f9a99d6d724500d9fc8d6a0864defc99cfaa9b91" class="src_link" title="app/models/post.rb">app/models/post.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>19</td>
+        <td>20</td>
         <td>10</td>
         <td>10</td>
         <td>0</td>
@@ -318,7 +318,7 @@
       <tr>
         <td class="strong"><a href="#f9a99d6d724500d9fc8d6a0864defc99cfaa9b91" class="src_link" title="app/models/post.rb">app/models/post.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>19</td>
+        <td>20</td>
         <td>10</td>
         <td>10</td>
         <td>0</td>
@@ -1185,22 +1185,28 @@
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">    # includes(:user).where(users: { role =&gt; true })</code>
+          <code class="ruby">    # scope :created_by, -&gt;(role) { joins(:user).where(users: { role =&gt; true }) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">    # where(user_id: User.where(role =&gt; true).pluck(:id))</code>
+          <code class="ruby">    # includes(:user).where(users: { role =&gt; true })</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    # where(user_id: User.where(role =&gt; true).pluck(:id))</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">end</code>
