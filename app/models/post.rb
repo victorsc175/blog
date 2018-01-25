@@ -7,14 +7,5 @@ class Post < ApplicationRecord
   has_many :marks, dependent: :destroy
   has_many :commentators, through: :comments, source: :user, dependent: :destroy
   has_one :seo, as: :seoable, dependent: :destroy
-
-  # Use symbol like :moderator
-  def self.created_by(role)
-    # fastest
-    joins(:user).where(users: { role => true })
-    # another options:
-    # scope :created_by, ->(role) { joins(:user).where(users: { role => true }) }
-    # includes(:user).where(users: { role => true })
-    # where(user_id: User.where(role => true).pluck(:id))
-  end
+  scope :created_by, ->(role) { joins(:user).where(users: { role => true }) }
 end
