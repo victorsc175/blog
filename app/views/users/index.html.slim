@@ -15,18 +15,7 @@ table
       th
 
   tbody
-    - @users.each do |user|
-      tr
-        td = user.name
-        td = user.email
-        td = user.moderator
-        td = user.creator
-        td = user.disactive
-        td = user.comments_count
-        td = user.posts_count
-        td = link_to 'Show', user
-        td = link_to 'Edit', edit_user_path(user)
-        td = link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete
+    = render partial: 'user', collection: @users
 
 br
 
