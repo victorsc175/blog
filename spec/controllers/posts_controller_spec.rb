@@ -28,12 +28,20 @@ RSpec.describe PostsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
+  let(:user) { FactoryGirl.create(:user, name: 'Posted User', email: 'posted@email.com') }
+  
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { title: 'Valid title',
+      body: 'Valid body',
+      disactive: false,
+      user_id: user.id }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { title: '',
+      body: 'Valid body',
+      disactive: false,
+      user: nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -97,14 +105,14 @@ RSpec.describe PostsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { title: 'Valid title updated' }
       }
 
       it "updates the requested post" do
         post = Post.create! valid_attributes
         put :update, params: {id: post.to_param, post: new_attributes}, session: valid_session
         post.reload
-        skip("Add assertions for updated state")
+        expect(post.title).to eq('Valid title updated')
       end
 
       it "redirects to the post" do

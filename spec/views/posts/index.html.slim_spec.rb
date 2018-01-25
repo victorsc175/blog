@@ -1,28 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe "posts/index", type: :view do
+  let(:user1) { FactoryGirl.create(:user, name: 'Posted User1', email: 'posted1@email.com') }
+  let(:user2) { FactoryGirl.create(:user, name: 'Posted User2', email: 'posted2@email.com') }
   before(:each) do
-    assign(:posts, [
       Post.create!(
-        :title => "Title",
+        :title => "Title1",
         :body => "MyText",
-        :user => nil,
-        :disactive => false
-      ),
-      Post.create!(
-        :title => "Title",
-        :body => "MyText",
-        :user => nil,
+        :user => user1,
         :disactive => false
       )
-    ])
+      Post.create!(
+        :title => "Title2",
+        :body => "MyText",
+        :user => user2,
+        :disactive => false
+      )
+      Post.create!(
+        :title => "Title3",
+        :body => "MyText",
+        :user => user1,
+        :disactive => false
+      )
+    assign(:posts, Post.includes(:user).page(1).per(3))
   end
 
   it "renders a list of posts" do
     render
-    assert_select "tr>td", :text => "Title".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
-    assert_select "tr>td", :text => false.to_s, :count => 2
+    assert_select "tr>td", :text => "Title1".to_s, :count => 1
+    assert_select "tr>td", :text => "Title2".to_s, :count => 1
+    assert_select "tr>td", :text => "MyText".to_s, :count => 3
   end
 end

@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "posts/show", type: :view do
+  let(:user) { FactoryGirl.create(:user, name: 'Posted User3', email: 'posted3@email.com') }
   before(:each) do
     @post = assign(:post, Post.create!(
       :title => "Title",
       :body => "MyText",
-      :user => nil,
+      :user => user,
       :disactive => false
     ))
   end

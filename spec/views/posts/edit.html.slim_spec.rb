@@ -1,11 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "posts/edit", type: :view do
+  
+  let(:user) { FactoryGirl.create(:user, name: 'Posted User', email: 'posted@email.com') }
+  
   before(:each) do
     @post = assign(:post, Post.create!(
       :title => "MyString",
       :body => "MyText",
-      :user => nil,
+      :user => user,
       :disactive => false
     ))
   end
@@ -18,8 +21,6 @@ RSpec.describe "posts/edit", type: :view do
       assert_select "input[name=?]", "post[title]"
 
       assert_select "textarea[name=?]", "post[body]"
-
-      assert_select "input[name=?]", "post[user_id]"
 
       assert_select "input[name=?]", "post[disactive]"
     end
