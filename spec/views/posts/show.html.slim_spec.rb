@@ -9,6 +9,7 @@ RSpec.describe "posts/show", type: :view do
       :user => user,
       :disactive => false
     ))
+    @comments = assign(:comments, Post.first.comments.includes(:user).page(1).per(10))
   end
 
   it "renders attributes in <p>" do
@@ -16,6 +17,5 @@ RSpec.describe "posts/show", type: :view do
     expect(rendered).to match(/Title/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(//)
-    expect(rendered).to match(/false/)
   end
 end

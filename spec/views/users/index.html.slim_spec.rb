@@ -25,12 +25,12 @@ RSpec.describe "users/index", type: :view do
 
   it "renders a list of users" do
     render
-    assert_select "tr>td", :text => "Name1".to_s, :count => 1
-    assert_select "tr>td", :text => "Name2".to_s, :count => 1
-    assert_select "tr>td", :text => "mail5@mail.com".to_s, :count => 1
-    assert_select "tr>td", :text => "mail6@mail.com".to_s, :count => 1
-    assert_select "tr>td", :text => false.to_s, :count => 6
-    assert_select "tr>td", :text => 2.to_s, :count => 2
-    assert_select "tr>td", :text => 3.to_s, :count => 2
+    assert_select "p", :text => "Name1".to_s, :count => 1
+    assert_select "p", :text => "Name2".to_s, :count => 1
+    assert_select "a", :text => "mail5@mail.com".to_s, :count => 1
+    assert_select "a", :text => "mail6@mail.com".to_s, :count => 1
+    assert_select "p", :text => "active".to_s, :count => 2
+    # assert_select "tr>td", :text => 2.to_s, :count => 2
+    # assert_select "tr>td", :text => 3.to_s, :count => 2
   end
 end
