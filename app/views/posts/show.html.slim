@@ -9,7 +9,7 @@ article
 comments  
   p
     strong Comments:
-    - @post.comments.order(:created_at).each do |comment|
+    - @comments.order(:created_at).each do |comment|
       author
         = comment.user.name
       date
@@ -19,5 +19,6 @@ comments
 
 controls
   common
+    = paginate @comments
     = link_to 'Edit', edit_post_path(@post)
     = link_to 'Back', posts_path

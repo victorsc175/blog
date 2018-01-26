@@ -1,11 +1,12 @@
-tr
-  td = user.name
-  td = user.email
-  td = user.moderator
-  td = user.creator
-  td = user.disactive
-  td = user.comments_count
-  td = user.posts_count
-  td = link_to 'Show', user
-  td = link_to 'Edit', edit_user_path(user)
-  td = link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete
+article
+  p.author = user.name
+  = link_to user.email, user_path(user)
+  
+controls
+  = link_to 'Show', user
+  = link_to 'Edit', edit_user_path(user)
+  = link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete
+  p.status Status:
+  p.status  = 'moderator' if user.moderator
+  p.status  = 'creator' if user.creator
+  p.status  = user.disactive ? 'disactive' : 'active'

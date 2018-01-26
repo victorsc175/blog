@@ -31,13 +31,14 @@ $details_font: Verdana;
 }
 
 @mixin frame_line_params($height, $bgcolor) {
-  height: 3px;
+  height: 4px;
   background-color: $main_color;
 }
 
 * {
     margin: 0;
     padding: 0;
+    font-family: $main_font;
 }
 
 body {
@@ -52,7 +53,8 @@ body {
       padding-top: 20px;
       padding-bottom: 20px;
       @include main_padding(10%);
-    }
+      display: inline-block;
+    }      
   
     ul {
       
@@ -62,6 +64,10 @@ body {
       overflow: hidden;
       background-color: $text_color;
       padding-left: 10%;
+      
+      li:last-child {
+        background-color: $main_color;
+      }
       
       li {
         
@@ -80,7 +86,7 @@ body {
           background-color: $menu_hover_color;
         }
         
-      }      
+      }
     }
     
     .frame-line {
@@ -92,6 +98,13 @@ body {
   #main {
     
     @include main_padding(10%);
+    
+    p#notice {
+      color: $main_color;
+      font-size: 90%;
+      padding-top: 5px;
+      padding-bottom:5px;
+    }
     
     h2 {
       color: $text_color;
@@ -191,7 +204,7 @@ body {
       p strong {
         color: $text_color;
         font-size: 100%;
-        text-weigth: bold;
+        font-weight: bold;
         display: block;
         padding: 10px;
       }
@@ -215,6 +228,119 @@ body {
         display: block;
         font-style: italic;
         padding-bottom: 10px;
+      }
+    }
+    
+    form {
+      
+      #error_explanation {
+        
+        h3 {
+          color: $main_color;
+          font-size: 90%;
+          margin-bottom: 10px;
+        }
+        
+        ul {
+          
+          margin-bottom: 30px;
+          display: block;
+          
+          li {
+            color: $main_color;
+            font-size: 90%;
+            margin-left: 30px;
+          }
+        }
+      }
+      
+      .field {
+        
+        width: 850px;
+        height: 35px;
+        
+        label {
+          color: $text_color;
+          display: inline-block;
+          padding: 0px 10px 10px 10px;
+          font-size: 90%;
+          width: 100px;
+        }
+        
+        input[type="text"] {
+          font-size: 95%;
+          color: $text_color;
+          display: inline-block;
+          float: right;
+          width: 710px;
+        }
+        
+        input[type="checkbox"] {
+          color: $text_color;
+          display: inline-block;
+          float:right;
+          margin-right: 700px;
+        }
+        
+        input[type="number"] {
+          color: $text_color;
+          display: inline-block;
+          float:right;
+          width: 50px;
+          margin-right: 660px;
+        }
+      }
+      
+      .field_body {
+          
+        height: 450px;
+        width: 850px;
+        
+        label {
+          color: $text_color;
+          display: inline-block;
+          padding: 0px 10px 10px 10px;
+          font-size: 90%;
+        }
+          
+        textarea {
+          color: $text_color;
+          float: right;
+          width: 710px;
+          height: 440px;
+          font-size: 95%;
+        }
+      }
+      
+      .actions {
+        color: $text_color;
+        display: inline-block;
+        padding: 10px;
+        font-size: 90%;
+        width: 100px;
+        
+        input {
+          width: 100px;
+          height: 25px;
+        }
+      }  
+    }
+    
+    .list {
+      
+      margin-top: 30px;
+      margin-bottom: 30px;
+      color: $text_color;
+      font-size: 90%;
+      
+      p {
+        
+        margin-top: 20px;
+        margin-bottom: 20px;
+        
+        strong {
+          margin-right: 5px;
+        }
       }
     }
 
@@ -258,10 +384,8 @@ body {
       @include frame_line_params(3px, $main_color)
     }
     
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
     background-color: $text_color;
+    margin-top: 15px;
   
     p {
       display: block;
