@@ -1,36 +1,35 @@
 require 'rails_helper'
 
-RSpec.describe "users/new", type: :view do
+RSpec.describe 'users/new', type: :view do
   before(:each) do
     assign(:user, User.new(
-      :name => "MyString",
-      :email => "MyString",
-      :moderator => false,
-      :creator => false,
-      :disactive => false,
-      :comments_count => 1,
-      :posts_count => 1
+                    name: 'MyString',
+                    email: 'MyString',
+                    moderator: false,
+                    creator: false,
+                    disactive: false,
+                    comments_count: 1,
+                    posts_count: 1
     ))
   end
 
-  it "renders new user form" do
+  it 'renders new user form' do
     render
 
-    assert_select "form[action=?][method=?]", users_path, "post" do
+    assert_select 'form[action=?][method=?]', users_path, 'post' do
+      assert_select 'input[name=?]', 'user[name]'
 
-      assert_select "input[name=?]", "user[name]"
+      assert_select 'input[name=?]', 'user[email]'
 
-      assert_select "input[name=?]", "user[email]"
+      assert_select 'input[name=?]', 'user[moderator]'
 
-      assert_select "input[name=?]", "user[moderator]"
+      assert_select 'input[name=?]', 'user[creator]'
 
-      assert_select "input[name=?]", "user[creator]"
+      assert_select 'input[name=?]', 'user[disactive]'
 
-      assert_select "input[name=?]", "user[disactive]"
+      assert_select 'input[name=?]', 'user[comments_count]'
 
-      assert_select "input[name=?]", "user[comments_count]"
-
-      assert_select "input[name=?]", "user[posts_count]"
+      assert_select 'input[name=?]', 'user[posts_count]'
     end
   end
 end

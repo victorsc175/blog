@@ -8,7 +8,7 @@ article
   
 comments  
   p
-    strong Comments:
+    strong Comments
     - @comments.order(:created_at).each do |comment|
       author
         = comment.user.name
