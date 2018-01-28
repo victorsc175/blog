@@ -1,10 +1,10 @@
 module BlogDataFaker
   # Populate blog fake data
   class Builder
-    USERS = 20
-    POSTS = 50
+    USERS = 25
+    POSTS = 60
     PARAGRAPHS = 20
-    COMMENTS = 1000
+    COMMENTS = 300
     MARKS_RANGE = 1..5
     MARKS = 100
     CREATORS = 7
@@ -51,7 +51,9 @@ module BlogDataFaker
 
       def user
         username = FFaker::Name.name
-        User.new name: username, email: email(username)
+        User.new name: username,
+                 email: email(username),
+                 password: password(username)
       end
 
       def users
@@ -63,6 +65,10 @@ module BlogDataFaker
           '@' +
           FFaker::Company.bs.split.first +
           '.com'
+      end
+      
+      def password(username)
+        email(username)
       end
 
       def paragraph
