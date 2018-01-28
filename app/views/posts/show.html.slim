@@ -9,13 +9,7 @@ article
 comments  
   p
     strong Comments
-    - @comments.order(:created_at).each do |comment|
-      author
-        = comment.user.name
-      date
-        = comment.created_at
-      comment
-        = comment.body
+    = render partial: 'comments/comment', collection: @comments
 
 controls
   common
