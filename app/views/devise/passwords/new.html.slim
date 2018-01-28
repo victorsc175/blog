@@ -4,8 +4,8 @@ h2
   = devise_error_messages!
   .field
     = f.label :email
-    br
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .actions
-    = f.submit "Send me reset password instructions"
+    .wide
+      = f.submit "Send me reset password instructions"
 = render "devise/shared/links"

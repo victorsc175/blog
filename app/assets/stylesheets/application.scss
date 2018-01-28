@@ -64,8 +64,9 @@ body {
       overflow: hidden;
       background-color: $text_color;
       padding-left: 10%;
+      padding-right: 10%;
       
-      li:last-child {
+      li#marked {
         background-color: $main_color;
       }
       
@@ -86,6 +87,10 @@ body {
           background-color: $menu_hover_color;
         }
         
+      }
+      
+      li#auth {
+        float: right;
       }
     }
     
@@ -258,12 +263,13 @@ body {
         
         width: 850px;
         height: 35px;
+        font-size: 85%;
         
         label {
           color: $text_color;
           display: inline-block;
           padding: 0px 10px 10px 10px;
-          font-size: 90%;
+          font-size: 100%;
           width: 100px;
         }
         
@@ -322,6 +328,12 @@ body {
         input {
           width: 100px;
           height: 25px;
+        }
+        
+        .wide {
+          input {
+            width: 240px;
+          }
         }
       }  
     }

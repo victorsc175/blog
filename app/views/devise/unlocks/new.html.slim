@@ -4,8 +4,8 @@ h2
   = devise_error_messages!
   .field
     = f.label :email
-    br
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .actions
-    = f.submit "Resend unlock instructions"
+    .wide
+      = f.submit "Resend unlock instructions"
 = render "devise/shared/links"
