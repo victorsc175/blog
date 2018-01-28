@@ -1,5 +1,6 @@
 header
   h1 Ruby News and Articles
+  
   ul
     li 
       = link_to 'Home', home_path 
@@ -11,4 +12,17 @@ header
       = link_to 'About', about_path
     li 
       = link_to 'New Post', new_post_path
+      
+  ul
+    - if user_signed_in?
+      li
+        span Hello, #{current_user.name}
+      li
+        = link_to 'Log out', destroy_user_session_path, method: :delete
+    - else
+      li
+        = link_to 'Log in', new_user_session_path
+      li
+        = link_to 'Register', new_user_registration_path 
+  
   .frame-line
