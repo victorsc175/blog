@@ -87,6 +87,15 @@ body {
           background-color: $menu_hover_color;
         }
         
+        span {
+          color: white;
+          font-size: 80%;
+          font-family: $details_font, $main_font;
+          font-style: italic;
+          display: inline-block;
+          padding: 7px;
+        }
+        
       }
       
       li#auth {
