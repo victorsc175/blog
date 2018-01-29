@@ -1,6 +1,5 @@
 h2
-  | Edit 
-  = resource_name.to_s.humanize
+  | Edit Profile 
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
   .field
@@ -12,9 +11,9 @@ h2
       = resource.unconfirmed_email
   .field
     = f.label :password
+    = f.password_field :password, autocomplete: "off"
     i
       | (leave blank if you don't want to change it)
-    = f.password_field :password, autocomplete: "off"
     - if @minimum_password_length
       em
         = @minimum_password_length
@@ -24,14 +23,17 @@ h2
     = f.password_field :password_confirmation, autocomplete: "off"
   .field
     = f.label :current_password
+    = f.password_field :current_password, autocomplete: "off"
     i
       | (we need your current password to confirm your changes)
-    = f.password_field :current_password, autocomplete: "off"
   .actions
     = f.submit "Update"
 h3
   | Cancel my account
 p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+  | Unhappy?
+  .actions_ext 
+    = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+controls
+  common
+    = link_to "Back", :back

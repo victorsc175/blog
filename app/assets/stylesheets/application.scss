@@ -125,6 +125,17 @@ body {
       padding-top: 20px;
       padding-bottom: 20px;
     }
+    
+    h3 {
+      color: $text_color;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    p {
+      color: $text_color;
+      font-size: 90%;
+    }
   
     article {
       
@@ -274,6 +285,12 @@ body {
         height: 35px;
         font-size: 85%;
         
+        em, i {
+          font-size: 95%;
+          display: inline-block;
+          margin-left: 10px;
+        }
+        
         label {
           color: $text_color;
           display: inline-block;
@@ -396,6 +413,18 @@ body {
           padding-top: 3px;
         }
       }
+    }
+    
+    .actions_ext {
+        color: $text_color;
+        display: inline-block;
+        padding: 10px;
+        font-size: 90%;
+        
+        input {
+          width: 130px;
+          height: 25px;
+        }
     }
   }
   
