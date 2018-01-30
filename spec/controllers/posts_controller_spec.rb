@@ -27,7 +27,9 @@ RSpec.describe PostsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
-  let(:user) { FactoryGirl.create(:user, name: 'Posted User', email: 'posted@email.com') }
+  let(:user) { FactoryGirl.create(:user, name: 'Posted User',
+                                         email: 'posted@email.com',
+                                         password: 'specmanager') }
 
   let(:valid_attributes) do
     { title: 'Valid title',

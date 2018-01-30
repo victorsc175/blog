@@ -11,5 +11,6 @@ html
   body
     = render partial: 'shared/header'
     #main
+      p#notice = notice
       = yield
     = render partial: 'shared/footer'

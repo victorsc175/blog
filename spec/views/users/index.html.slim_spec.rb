@@ -4,6 +4,7 @@ RSpec.describe 'users/index', type: :view do
   before(:each) do
     User.create!(
       name: 'Name1',
+      password: 'specmanager',
       email: 'mail5@mail.com',
       moderator: false,
       creator: false,
@@ -13,6 +14,7 @@ RSpec.describe 'users/index', type: :view do
     )
     User.create!(
       name: 'Name2',
+      password: 'specmanager',
       email: 'mail6@mail.com',
       moderator: false,
       creator: false,
