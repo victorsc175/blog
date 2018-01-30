@@ -31,7 +31,7 @@ class User < ApplicationRecord
     user = User.find_by(provider: provider, uid: uid)
     unless user
       user = User.find_by(name: nickname)
-      user.update(provider: provider, uid: uid)
+      user.update(provider: provider, uid: uid) if user
     end
     user
   end
