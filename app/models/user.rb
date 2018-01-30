@@ -25,14 +25,14 @@ class User < ApplicationRecord
                              source_type: :User, dependent: :destroy
   has_one :seo, as: :seoable, dependent: :destroy
   def self.from_omniauth(auth)
-    # where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-    where(name: auth.info.nickname).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      p auth.info
-      # user.name = auth.info.email
-      # user.email = auth.info.email
-      # user.password = Devise.friendly_token[0,20]
+    provider = auth.provider
+    uid = auth.uid
+    nickname = auth.info.nickname
+    user = User.find_by(provider: provider, uid: uid)
+    unless user
+      user = User.find_by(name: nickname)
+      user.update(provider: provider, uid: uid)
     end
+    user
   end
 end
