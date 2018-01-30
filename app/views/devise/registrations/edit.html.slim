@@ -15,6 +15,10 @@ h2
   .field
     = f.label :password
     = f.password_field :password, autocomplete: "off"
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, autocomplete: "off"
+  .field
     i
       | (leave blank if you don't want to change it)
     - if @minimum_password_length
@@ -22,11 +26,9 @@ h2
         = @minimum_password_length
         |  characters minimum
   .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .field
     = f.label :current_password
     = f.password_field :current_password, autocomplete: "off"
+  .field
     i
       | (we need your current password to confirm your changes)
   .actions

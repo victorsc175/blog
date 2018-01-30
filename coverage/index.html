@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-01-30T13:29:57+02:00">2018-01-30T13:29:57+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-01-30T14:03:09+02:00">2018-01-30T14:03:09+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">44.76%</span></span>
+    (<span class="covered_percent"><span class="red">44.05%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.69
+         0.68
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>17</b> files in total.
-    <b>248</b> relevant lines. 
+    <b>252</b> relevant lines. 
     <span class="green"><b>111</b> lines covered</span> and
-    <span class="red"><b>137</b> lines missed </span>
+    <span class="red"><b>141</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -202,12 +202,12 @@
       
       <tr>
         <td class="strong"><a href="#1a5e42b0c0943ab8affb446a8b8aad6cd434d5e0" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
-        <td class="red strong">75.0 %</td>
+        <td class="red strong">60.0 %</td>
         <td>38</td>
-        <td>16</td>
+        <td>20</td>
         <td>12</td>
-        <td>4</td>
-        <td>0.8</td>
+        <td>8</td>
+        <td>0.6</td>
       </tr>
       
       <tr>
@@ -316,20 +316,20 @@
           <div class="file_list_container" id="Models">
   <h2>
     <span class="group_name">Models</span>
-    (<span class="covered_percent"><span class="yellow">90.0%</span></span>
+    (<span class="covered_percent"><span class="yellow">81.82%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.94
+         0.84
        </span>
     </span> hits/line)
   </h2>
   <a name="Models"></a>
   <div>
     <b>6</b> files in total.
-    <b>40</b> relevant lines. 
+    <b>44</b> relevant lines. 
     <span class="green"><b>36</b> lines covered</span> and
-    <span class="red"><b>4</b> lines missed </span>
+    <span class="red"><b>8</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -397,12 +397,12 @@
       
       <tr>
         <td class="strong"><a href="#1a5e42b0c0943ab8affb446a8b8aad6cd434d5e0" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
-        <td class="red strong">75.0 %</td>
+        <td class="red strong">60.0 %</td>
         <td>38</td>
-        <td>16</td>
+        <td>20</td>
         <td>12</td>
-        <td>4</td>
-        <td>0.8</td>
+        <td>8</td>
+        <td>0.6</td>
       </tr>
       
     </tbody>
@@ -2490,11 +2490,11 @@
         <div class="source_table" id="1a5e42b0c0943ab8affb446a8b8aad6cd434d5e0">
   <div class="header">
     <h3>app/models/user.rb</h3>
-    <h4><span class="red">75.0 %</span> covered</h4>
+    <h4><span class="red">60.0 %</span> covered</h4>
     <div>
-      <b>16</b> relevant lines. 
+      <b>20</b> relevant lines. 
       <span class="green"><b>12</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
   
@@ -2663,58 +2663,58 @@
           <code class="ruby">  def self.from_omniauth(auth)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="missed" data-hits="0" data-linenumber="28">
           
           
-          <code class="ruby">    # where(provider: auth.provider, uid: auth.uid).first_or_create do |user|</code>
+          <code class="ruby">    provider = auth.provider</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="29">
           
           
-          <code class="ruby">    where(name: auth.info.nickname).first_or_create do |user|</code>
+          <code class="ruby">    uid = auth.uid</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="30">
           
           
-          <code class="ruby">      user.provider = auth.provider</code>
+          <code class="ruby">    nickname = auth.info.nickname</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="31">
           
           
-          <code class="ruby">      user.uid = auth.uid</code>
+          <code class="ruby">    user = User.find_by(provider: provider, uid: uid)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="32">
           
           
-          <code class="ruby">      p auth.info</code>
+          <code class="ruby">    unless user</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="missed" data-hits="0" data-linenumber="33">
           
           
-          <code class="ruby">      # user.name = auth.info.email</code>
+          <code class="ruby">      user = User.find_by(name: nickname)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="missed" data-hits="0" data-linenumber="34">
           
           
-          <code class="ruby">      # user.email = auth.info.email</code>
+          <code class="ruby">      user.update(provider: provider, uid: uid)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
           
           
-          <code class="ruby">      # user.password = Devise.friendly_token[0,20]</code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="missed" data-hits="0" data-linenumber="36">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">    user</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">

@@ -260,10 +260,10 @@ body {
       
       #error_explanation {
         
-        h3 {
+        h2, h3 {
           color: $main_color;
           font-size: 90%;
-          margin-bottom: 10px;
+          margin-bottom: 5px;
         }
         
         ul {
@@ -285,9 +285,15 @@ body {
         height: 35px;
         font-size: 85%;
         
-        em, i {
+        i {
           font-size: 95%;
           display: inline-block;
+          margin-left: 120px;
+        }
+        
+        em {
+          font-size: 95%;
+          displawy: inline-block;
           margin-left: 10px;
         }
         
@@ -321,6 +327,14 @@ body {
           width: 50px;
           margin-right: 660px;
         }
+        
+        input[type="email"], input[type="password"] {
+          color: $text_color;
+          display: inline-block;
+          float:right;
+          width: 180px;
+          margin-right: 540px;
+        }
       }
       
       .field_body {
@@ -333,6 +347,7 @@ body {
           display: inline-block;
           padding: 0px 10px 10px 10px;
           font-size: 90%;
+          width: 100px;
         }
           
         textarea {
@@ -341,6 +356,14 @@ body {
           width: 710px;
           height: 440px;
           font-size: 95%;
+        }
+      }
+      
+      .field_with_errors {
+        display: inline-block;
+        
+        input {
+          background-color: pink;
         }
       }
       
