@@ -305,7 +305,7 @@ body {
           width: 100px;
         }
         
-        input[type="text"] {
+        input[type="text2"] {
           font-size: 95%;
           color: $text_color;
           display: inline-block;
@@ -317,7 +317,7 @@ body {
           color: $text_color;
           display: inline-block;
           float:right;
-          margin-right: 700px;
+          margin-right: 712px;
         }
         
         input[type="number"] {
@@ -325,10 +325,10 @@ body {
           display: inline-block;
           float:right;
           width: 50px;
-          margin-right: 660px;
+          margin-right: 670px;
         }
         
-        input[type="email"], input[type="password"] {
+        input[type="text"], input[type="email"], input[type="password"] {
           color: $text_color;
           display: inline-block;
           float:right;
@@ -353,7 +353,7 @@ body {
         textarea {
           color: $text_color;
           float: right;
-          width: 710px;
+          width: 725px;
           height: 440px;
           font-size: 95%;
         }
