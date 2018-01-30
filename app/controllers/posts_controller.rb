@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @comments = Comment.includes(:user).order(:created_at).page(params[:page]).per(10)
+    @comments = @post.comments.includes(:user).order(:created_at).page(params[:page]).per(10)
   end
 
   # GET /posts/new
@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save

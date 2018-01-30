@@ -4,7 +4,7 @@ module BlogDataFaker
     USERS = 25
     POSTS = 60
     PARAGRAPHS = 20
-    COMMENTS = 300
+    COMMENTS = 1000
     MARKS_RANGE = 1..5
     MARKS = 100
     CREATORS = 7

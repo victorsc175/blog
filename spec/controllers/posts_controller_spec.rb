@@ -49,6 +49,12 @@ RSpec.describe PostsController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # PostsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+  
+  before(:each) do
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    user = FactoryGirl.create(:user)
+    sign_in user
+  end
 
   describe 'GET #index' do
     it 'returns a success response' do
