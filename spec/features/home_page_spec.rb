@@ -11,4 +11,12 @@ feature 'Home page' do
     click_link 'Home'
     expect(page).to have_content('Latest News')
   end
+
+  scenario 'Select post' do
+    user = FactoryGirl.create(:user)
+    post = FactoryGirl.create(:post, user: user)
+    visit('/')
+    click_link(post.title)
+    expect(page).to have_content(post.body)
+  end
 end
