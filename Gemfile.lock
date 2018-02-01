@@ -166,6 +166,8 @@ GEM
     pg (0.21.0)
     public_suffix (3.0.1)
     puma (3.11.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-proxy (0.6.3)
       rack
@@ -301,6 +303,7 @@ DEPENDENCIES
   omniauth-github
   pg (~> 0.18)
   puma (~> 3.7)
+  pundit
   rails (~> 5.1.4)
   rails-controller-testing
   rspec-rails (~> 3.7)
