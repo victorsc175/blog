@@ -3,13 +3,8 @@ require 'rails_helper'
 feature 'Listing posts page' do
   
   before :each do
-    visit('/')
-    click_link('Register')
-    fill_in('Name', :with => 'John Smith')
-    fill_in('Email', :with => 'john.smith@mail.com')
-    fill_in('Password', :with => 'manager')
-    fill_in('Password confirmation', :with => 'manager')
-    click_button('Sign up')
+    user = creator
+    login(user.email, 'specmanager')
   end
   
   scenario 'Show posts page' do
@@ -18,13 +13,11 @@ feature 'Listing posts page' do
   end
 
   scenario 'Visit Listing posts page' do
-    visit('/')
     click_link 'Posts'
     expect(page).to have_content('Listing posts')
   end
   
   scenario 'Create new post' do
-    visit('/')
     click_link 'New Post'
     fill_in('Title', :with => 'Test Post')
     fill_in('Body', :with => 'Test Post body')
@@ -33,7 +26,6 @@ feature 'Listing posts page' do
   end
   
   scenario 'Create new post with incorrect parameters' do
-    visit('/')
     click_link 'New Post'
     fill_in('Title', :with => '')
     fill_in('Body', :with => '')
@@ -44,7 +36,6 @@ feature 'Listing posts page' do
   end
   
   scenario 'Show post' do
-    visit('/')
     click_link 'New Post'
     fill_in('Title', :with => 'Test Post')
     fill_in('Body', :with => 'Test Post body')
@@ -54,7 +45,6 @@ feature 'Listing posts page' do
   end
   
   scenario 'Edit post' do
-    visit('/')
     click_link 'New Post'
     fill_in('Title', :with => 'Test Post')
     fill_in('Body', :with => 'Test Post body')
@@ -67,7 +57,6 @@ feature 'Listing posts page' do
   end
   
   scenario 'Edit post with incorrect parameters' do
-    visit('/')
     click_link 'New Post'
     fill_in('Title', :with => 'Test Post')
     fill_in('Body', :with => 'Test Post body')

@@ -29,7 +29,9 @@ RSpec.describe PostsController, type: :controller do
   # adjust the attributes here as well.
   let(:user) { FactoryGirl.create(:user, name: 'Posted User',
                                          email: 'posted@email.com',
-                                         password: 'specmanager') }
+                                         password: 'specmanager',
+                                         creator: true,
+                                         moderator: true) }
 
   let(:valid_attributes) do
     { title: 'Valid title',
@@ -52,7 +54,6 @@ RSpec.describe PostsController, type: :controller do
   
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    user = FactoryGirl.create(:user)
     sign_in user
   end
 

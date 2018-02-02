@@ -3,13 +3,8 @@ require 'rails_helper'
 feature 'Listing users page' do
   
   before :each do
-    visit('/')
-    click_link('Register')
-    fill_in('Name', :with => 'John Smith')
-    fill_in('Email', :with => 'john.smith@mail.com')
-    fill_in('Password', :with => 'manager')
-    fill_in('Password confirmation', :with => 'manager')
-    click_button('Sign up')
+    user = moderator
+    login(user.email, 'specmanager')
   end
   
   scenario 'Show users page' do
