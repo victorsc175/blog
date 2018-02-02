@@ -1,3 +1,4 @@
+require_relative '../policies/user_policy'
 # UsersController
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
@@ -5,25 +6,34 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    unless current_user && authorize(current_user)
+      raise Pundit::NotAuthorizedError, "not allowed"
+    end
     @users = User.page(params[:page]).per(10)
   end
 
   # GET /users/1
   # GET /users/1.json
-  def show; end
+  def show
+    authorize @user
+  end
 
   # GET /users/new
   def new
     @user = User.new
+    authorize @user
   end
 
   # GET /users/1/edit
-  def edit; end
+  def edit
+    authorize @user    
+  end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+    authorize @user
 
     respond_to do |format|
       if @user.save
@@ -42,6 +52,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    authorize @user
     respond_to do |format|
       if @user.update(user_params)
         format.html do
@@ -59,6 +70,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    authorize @user
     @user.destroy
     respond_to do |format|
       format.html do

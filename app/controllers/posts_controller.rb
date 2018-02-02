@@ -1,3 +1,4 @@
+require_relative '../policies/post_policy'
 # Post class
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
@@ -17,16 +18,20 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    authorize @post
   end
 
   # GET /posts/1/edit
-  def edit; end
+  def edit
+    authorize @post
+  end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    authorize @post
 
     respond_to do |format|
       if @post.save
@@ -46,6 +51,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
+      authorize @post
       if @post.update(post_params)
         format.html do
           redirect_to @post,

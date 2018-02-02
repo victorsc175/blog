@@ -5,7 +5,9 @@ article
   
 controls
   = link_to 'Show', post
-  = link_to 'Edit', edit_post_path(post)
-  = link_to 'Destroy', post, data: { confirm: 'Are you sure?' }, method: :delete
+  - if can_edit_post?
+    = link_to 'Edit', edit_post_path(post)
+  - if can_delete_post?
+    = link_to 'Destroy', post, data: { confirm: 'Are you sure?' }, method: :delete
   p.status Status:
   p.status = post.disactive ? 'disactive' : 'active'
