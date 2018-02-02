@@ -40,6 +40,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'pundit'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,7 +48,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_girl_rails'
   gem 'ffaker'
-  gem 'jquery-rails'
   gem 'xray-rails'
 end
 

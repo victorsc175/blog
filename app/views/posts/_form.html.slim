@@ -1,4 +1,5 @@
-= form_for @post do |f|
+= form_with model: @post, :html => { :id => 'create_post_form' } do |f|
+  .validation-error
   - if @post.errors.any?
     #error_explanation
       h3 = "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"

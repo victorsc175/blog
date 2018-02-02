@@ -258,11 +258,12 @@ body {
     
     form {
       
-      #error_explanation {
+      #error_explanation, .validation-error {
+        
+        color: $main_color;
+        font-size: 90%;
         
         h2, h3 {
-          color: $main_color;
-          font-size: 90%;
           margin-bottom: 5px;
         }
         

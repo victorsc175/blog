@@ -35,14 +35,20 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html do
-          redirect_to @post,
-                      notice: 'Post was successfully created.'
+        if request.xhr?
+          format.json { render :show, status: :created, location: @post }
+        else
+          format.html do
+            redirect_to @post,
+                        notice: 'Post was successfully created.'
+          end
         end
-        format.json { render :show, status: :created, location: @post }
       else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        if request.xhr?
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        else
+          format.html { render :new }
+        end
       end
     end
   end
