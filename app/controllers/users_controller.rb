@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     unless current_user && authorize(current_user)
-      raise Pundit::NotAuthorizedError, "not allowed"
+      raise Pundit::NotAuthorizedError, 'not allowed'
     end
     @users = User.page(params[:page]).per(10)
   end
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    authorize @user    
+    authorize @user
   end
 
   # POST /users

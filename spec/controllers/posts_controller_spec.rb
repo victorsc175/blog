@@ -27,11 +27,13 @@ RSpec.describe PostsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
-  let(:user) { FactoryGirl.create(:user, name: 'Posted User',
-                                         email: 'posted@email.com',
-                                         password: 'specmanager',
-                                         creator: true,
-                                         moderator: true) }
+  let(:user) do
+    FactoryGirl.create(:user, name: 'Posted User',
+                              email: 'posted@email.com',
+                              password: 'specmanager',
+                              creator: true,
+                              moderator: true)
+  end
 
   let(:valid_attributes) do
     { title: 'Valid title',
@@ -51,9 +53,9 @@ RSpec.describe PostsController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # PostsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
-  
+
   before(:each) do
-    @request.env["devise.mapping"] = Devise.mappings[:user]
+    @request.env['devise.mapping'] = Devise.mappings[:user]
     sign_in user
   end
 

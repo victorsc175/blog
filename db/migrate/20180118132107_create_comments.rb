@@ -2,7 +2,7 @@ class CreateComments < ActiveRecord::Migration[5.1]
   def change
     create_table :comments do |t|
       t.text :body
-      t.with_options foreign_key: true do 
+      t.with_options foreign_key: true do
         references :user
         references :post
       end

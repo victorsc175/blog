@@ -66,7 +66,7 @@ module BlogDataFaker
           FFaker::Company.bs.split.first +
           '.com'
       end
-      
+
       def password(username)
         email(username)
       end

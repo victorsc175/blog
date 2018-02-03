@@ -5,7 +5,7 @@ RSpec.describe 'posts/index', type: :view do
   let(:user2) { FactoryGirl.create(:user, name: 'Posted User2', email: 'posted2@email.com') }
   before(:each) do
     user = creator
-    @request.env["devise.mapping"] = Devise.mappings[:user]
+    @request.env['devise.mapping'] = Devise.mappings[:user]
     sign_in user
     Post.create!(
       title: 'Title1',

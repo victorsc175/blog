@@ -109,7 +109,7 @@ end
 require 'simplecov'
 require 'kaminari'
 require_relative 'support/users_helper'
-require "pundit/rspec"
+require 'pundit/rspec'
 SimpleCov.start 'rails' do
   add_filter '/bin/'
   add_filter '/db/'
