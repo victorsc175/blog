@@ -21,8 +21,7 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 append :linked_dirs, 'log', 'tmp/pids', 'sockets', 'public/static'
-set :rvm_type, :system
-# set :rvm_type, :user
+set :rvm_type, :user
 set :rvm_ruby_version, '2.4.1'
 set :default_env, rails_env: fetch(:stage)
 
