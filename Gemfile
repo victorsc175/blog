@@ -58,6 +58,7 @@ group :development do
   gem 'capistrano-rvm', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
+  gem 'dotenv-rails'
 end
 
 group :test do

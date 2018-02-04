@@ -213,8 +213,6 @@
         null,
         1,
         7,
-        1,
-        null,
         6,
         null,
         null,
@@ -300,6 +298,10 @@
         3,
         null,
         null,
+        null,
+        null,
+        1,
+        7,
         null,
         null
       ],
@@ -419,6 +421,14 @@
       "/home/victor/Documents/Aptana Studio 3 Workspace/blog/app/helpers/application_helper.rb": [
         null,
         0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
         0,
         0,
         0,
@@ -593,6 +603,6 @@
         0
       ]
     },
-    "timestamp": 1517590130
+    "timestamp": 1517688255
   }
 }
