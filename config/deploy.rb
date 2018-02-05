@@ -25,7 +25,7 @@ set :rvm_type, :user
 set :rvm_ruby_version, '2.4.1'
 set :default_env, rails_env: fetch(:stage)
 
-namespace :deploy do
+#namespace :deploy do
   desc "Yarn install"
   task :yarn_install, :roles => :app do
     run "yarn install"
@@ -35,7 +35,7 @@ namespace :deploy do
   task :compile_assets, :roles => :app do
     run "RAILS_ENV-production bundle exec rails assets:precompile"
   end
-end
+#end
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
