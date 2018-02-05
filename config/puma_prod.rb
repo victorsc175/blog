@@ -1,4 +1,5 @@
 require 'dotenv'
+require 'dotenv-rails'
 Dotenv.load('.env.local')
 
 workers Integer(ENV.fetch("WEB_CONCURRENCY", 8))
