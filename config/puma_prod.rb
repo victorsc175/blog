@@ -1,6 +1,6 @@
-require 'dotenv'
-require 'dotenv-rails'
-Dotenv.load('.env.local')
+# require 'dotenv'
+# require 'dotenv-rails'
+# Dotenv.load('.env.local')
 
 workers Integer(ENV.fetch("WEB_CONCURRENCY", 8))
 threads_count = Integer(ENV.fetch("MAX_THREADS", 1))
