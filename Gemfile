@@ -42,6 +42,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'pundit'
 gem 'slim-rails'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,7 +60,6 @@ group :development do
   gem 'capistrano-yarn', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
-  gem 'dotenv-rails'
 end
 
 group :test do
