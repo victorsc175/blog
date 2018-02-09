@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Listing posts page' do
   before :each do
-    user = creator
+    user = moderator
     login(user.email, 'specmanager')
   end
 
