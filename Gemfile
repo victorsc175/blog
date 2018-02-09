@@ -69,4 +69,5 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
+  gem 'pundit-matchers', '~> 1.4.1'
 end
