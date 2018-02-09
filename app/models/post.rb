@@ -7,5 +7,6 @@ class Post < ApplicationRecord
   has_many :marks, dependent: :destroy
   has_many :commentators, through: :comments, source: :user, dependent: :destroy
   has_one :seo, as: :seoable, dependent: :destroy
+  scope :published, -> { where(disactive: false) }
   scope :created_by, ->(role) { joins(:user).where(users: { role => true }) }
 end

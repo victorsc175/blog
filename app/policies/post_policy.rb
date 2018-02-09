@@ -1,19 +1,23 @@
 class PostPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+      scope.published
     end
+  end
+  
+  def index?
+    true
   end
 
   def create?
-    user.creator?
+    user && user.creator?
   end
 
   def destroy?
-    user.moderator?
+    user && user.moderator?
   end
 
   def update?
-    user.moderator?
+    user && user.moderator?
   end
 end

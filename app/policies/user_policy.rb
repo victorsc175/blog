@@ -6,18 +6,22 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    user.moderator?
+    user && user.moderator?
+  end
+  
+  def show?
+    user && user.moderator?
   end
 
   def create?
-    user.moderator?
+    user && user.moderator?
   end
 
   def destroy?
-    user.moderator?
+    user && user.moderator?
   end
 
   def update?
-    user.moderator?
+    user && user.moderator?
   end
 end
