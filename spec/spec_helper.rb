@@ -107,10 +107,6 @@ RSpec.configure do |config|
 end
 
 require 'simplecov'
-require 'kaminari'
-require_relative 'support/users_helper'
-require 'pundit/rspec'
-require 'pundit/matchers'
 SimpleCov.start 'rails' do
   add_filter '/bin/'
   add_filter '/db/'
@@ -123,3 +119,8 @@ SimpleCov.start 'rails' do
   add_group 'Mailers', 'app/mailers'
   add_group 'Views', 'app/views'
 end
+require 'kaminari'
+require_relative 'support/users_helper'
+require 'pundit/rspec'
+require 'pundit/matchers'
+

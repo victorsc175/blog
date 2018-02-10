@@ -27,26 +27,6 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  # POST /users
-  # POST /users.json
-  def create
-    @user = User.new(user_params)
-    authorize @user
-
-    respond_to do |format|
-      if @user.save
-        format.html do
-          redirect_to @user,
-                      notice: 'User was successfully created.'
-        end
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update

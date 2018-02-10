@@ -33,4 +33,14 @@ RSpec.describe User, type: :model do
 
     it { should have_many(:marks) }
   end
+  
+  let(:github_nick) { 'github_nick' }
+  let(:user) { FactoryGirl.create(:user, name: github_nick) }
+  
+  describe '.from_omniauth' do
+    it 'returns user' do
+      allow(described_class).to receive(:from_omniauth) { user }
+      expect(described_class.from_omniauth(:auth)).to eq(user)
+    end
+  end
 end
