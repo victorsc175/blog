@@ -135,3 +135,15 @@ end
 When("posts exist") do
   create_post
 end
+
+When("I click on user email link") do
+  click_link User.first.email
+end
+
+Then("I must see user show page") do
+  expect(page).to have_content('Name')
+end
+
+Then("I must see edit user page") do
+  expect(page).to have_content('Editing user')
+end
