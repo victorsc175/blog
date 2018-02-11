@@ -30,7 +30,8 @@ Feature: Guest navigation on Home page
     
   Scenario: guest opens post
     Given I am a guest user
-    When I go to the Home page
+    When posts exist
+    And I go to the Home page
     And I click on post link
     Then I must see post details
     
@@ -40,4 +41,24 @@ Feature: Guest navigation on Home page
     And I click on Log in link
     Then I must see Log in form
     
-     
+  Scenario: guest must not see Users link  
+    Given I am a guest user
+    When I go to the Home page
+    Then I must not see Users link
+    
+  Scenario: guest must not see New Post link  
+    Given I am a guest user
+    When I go to the Home page
+    Then I must not see New Post link
+    
+  Scenario: guest must not see Edit post link  
+    Given I am a guest user
+    When I go to the Home page
+    And I click on Posts link
+    Then I must not see Edit link
+    
+  Scenario: guest must not see Destroy post link  
+    Given I am a guest user
+    When I go to the Home page
+    And I click on Posts link
+    Then I must not see Destroy link
