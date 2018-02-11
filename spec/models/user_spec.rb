@@ -43,4 +43,39 @@ RSpec.describe User, type: :model do
       expect(described_class.from_omniauth(:auth)).to eq(user)
     end
   end
+  
+  let(:provider) { 'github' }
+  let(:uid) { '123545' }
+  let(:nickname) { 'nickname' }
+
+  before do
+    OmniAuth.config.test_mode = true
+  end
+
+  describe "#from_omniauth" do
+    let!(:github_user) { FactoryGirl.create(:user, provider: provider,
+                                     uid: uid, name: nickname)}
+    let(:github_oauth) { OmniAuth.config.mock_auth[:github] }
+
+    it 'returns oauth data for OAuth response for first request' do
+      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+        provider: '',
+        uid: '',
+        info: { nickname: nickname}
+      })
+      data = described_class.from_omniauth(github_oauth)
+      expect(data[:name]).to eq(nickname)
+    end
+    
+    it 'returns oauth data for OAuth response with stored parameters' do
+      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+        provider: provider,
+        uid: uid,
+        info: { nickname: nickname}
+      })
+      data = described_class.from_omniauth(github_oauth)
+      expect(data[:provider]).to eq(provider)
+      expect(data[:uid]).to eq(uid)
+    end
+  end
 end

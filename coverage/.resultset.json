@@ -29,15 +29,15 @@
         null,
         1,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
         null,
-        0,
+        3,
         null,
         null
       ],
@@ -78,8 +78,8 @@
       "/home/victor/Documents/Aptana Studio 3 Workspace/blog/app/controllers/callbacks_controller.rb": [
         1,
         1,
-        0,
-        0,
+        1,
+        1,
         null,
         null
       ],
@@ -94,7 +94,7 @@
         1,
         null,
         1,
-        74,
+        75,
         null,
         null
       ],
@@ -592,7 +592,7 @@
         0
       ]
     },
-    "timestamp": 1518290372
+    "timestamp": 1518373263
   },
   "Cucumber Features": {
     "coverage": {
