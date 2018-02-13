@@ -22,7 +22,7 @@ describe PostPolicy do
     it 'includes post in resolved scope' do
       expect(resolved_scope).to include(post)
     end
-    
+
     it { is_expected.to permit_action(:index) }
     it { is_expected.to permit_action(:show) }
     it { is_expected.to forbid_edit_and_update_actions }
@@ -40,5 +40,4 @@ describe PostPolicy do
     it { is_expected.to forbid_edit_and_update_actions }
     it { is_expected.to forbid_action(:destroy) }
   end
-
 end

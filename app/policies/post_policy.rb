@@ -1,10 +1,12 @@
+# Post policy
 class PostPolicy < ApplicationPolicy
+  # post scope
   class Scope < Scope
     def resolve
       scope.published
     end
   end
-  
+
   def index?
     true
   end

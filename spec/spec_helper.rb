@@ -123,4 +123,3 @@ require 'kaminari'
 require_relative 'support/users_helper'
 require 'pundit/rspec'
 require 'pundit/matchers'
-

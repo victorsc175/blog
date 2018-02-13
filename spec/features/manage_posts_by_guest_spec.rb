@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'Manage posts by guest' do
-
   scenario 'Show posts page' do
     visit('/posts')
     expect(page).to have_content('Listing posts')
@@ -12,5 +11,4 @@ feature 'Manage posts by guest' do
     click_link 'Posts'
     expect(page).to have_content('Listing posts')
   end
-
 end

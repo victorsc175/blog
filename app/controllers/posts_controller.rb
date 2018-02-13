@@ -12,7 +12,9 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @comments = @post.comments.includes(:user).order(:created_at).page(params[:page]).per(10)
+    @comments = @post.comments.includes(:user)
+                     .order(:created_at)
+                     .page(params[:page]).per(10)
   end
 
   # GET /posts/new
@@ -32,42 +34,17 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     authorize @post
-
     respond_to do |format|
-      if @post.save
-        if request.xhr?
-          format.json { render :show, status: :created, location: @post }
-        else
-          format.html do
-            redirect_to @post,
-                        notice: 'Post was successfully created.'
-          end
-        end
-      else
-        if request.xhr?
-          format.json { render json: @post.errors, status: :unprocessable_entity }
-        else
-          format.html { render :new }
-        end
-      end
+      output_for_create(format)
     end
   end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    authorize @post
     respond_to do |format|
-      authorize @post
-      if @post.update(post_params)
-        format.html do
-          redirect_to @post,
-                      notice: 'Post was successfully updated.'
-        end
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+      output_for_update(format)
     end
   end
 
@@ -95,5 +72,40 @@ class PostsController < ApplicationController
   # only allow the white list through.
   def post_params
     params.require(:post).permit(:title, :body, :user_id, :disactive)
+  end
+
+  def output_for_create(format)
+    if @post.save
+      if request.xhr?
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html do
+          redirect_to @post,
+                      notice: 'Post was successfully created.'
+        end
+      end
+    else
+      if request.xhr?
+        format.json do
+          render json: @post.errors,
+                 status: :unprocessable_entity
+        end
+      else
+        format.html { render :new }
+      end
+    end
+  end
+
+  def output_for_update(format)
+    if @post.update(post_params)
+      format.html do
+        redirect_to @post,
+                    notice: 'Post was successfully updated.'
+      end
+      format.json { render :show, status: :ok, location: @post }
+    else
+      format.html { render :edit }
+      format.json { render json: @post.errors, status: :unprocessable_entity }
+    end
   end
 end

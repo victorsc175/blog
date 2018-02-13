@@ -1,4 +1,6 @@
+# User policy
 class UserPolicy < ApplicationPolicy
+  # User scope
   class Scope < Scope
     def resolve
       scope
@@ -8,7 +10,7 @@ class UserPolicy < ApplicationPolicy
   def index?
     user && user.moderator?
   end
-  
+
   def show?
     user && user.moderator?
   end

@@ -42,5 +42,4 @@ feature 'Listing posts page' do
     click_link('Test Post')
     expect(page).to have_content('Back')
   end
-
 end

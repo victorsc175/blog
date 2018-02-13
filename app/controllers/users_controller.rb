@@ -32,16 +32,7 @@ class UsersController < ApplicationController
   def update
     authorize @user
     respond_to do |format|
-      if @user.update(user_params)
-        format.html do
-          redirect_to @user,
-                      notice: 'User was successfully updated.'
-        end
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+      output_for_update(format)
     end
   end
 
@@ -73,8 +64,21 @@ class UsersController < ApplicationController
                                  :creator, :disactive,
                                  :comments_count, :posts_count)
   end
-  
+
   def allowed
     current_user && authorize(current_user)
+  end
+
+  def output_for_update(format)
+    if @user.update(user_params)
+      format.html do
+        redirect_to @user,
+                    notice: 'User was successfully updated.'
+      end
+      format.json { render :show, status: :ok, location: @user }
+    else
+      format.html { render :edit }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
   end
 end

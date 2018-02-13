@@ -1,4 +1,5 @@
-module  UserHelper
+# User helper
+module UserHelper
   def signup
     visit root_path
     click_link('Register')

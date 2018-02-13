@@ -22,7 +22,7 @@ describe PostPolicy do
     it 'includes post in resolved scope' do
       expect(resolved_scope).to include(post)
     end
-  
+
     it { is_expected.to permit_action(:index) }
     it { is_expected.to permit_action(:show) }
     it { is_expected.to forbid_edit_and_update_actions }
@@ -42,15 +42,15 @@ describe PostPolicy do
   end
 
   # describe 'permitted attributes for visitor' do
-    # it { is_expected.to forbid_mass_assignment_of(:publish) }
-    # it do
-      # is_expected.to forbid_mass_assignment_of(:publish).for_action(:create)
-    # end
-    # it do
-      # is_expected.to forbid_mass_assignment_of(:publish).for_action(:update)
-    # end
-    # it { is_expected.to forbid_mass_assignment_of(:slug) }
-    # it { is_expected.to permit_mass_assignment_of(:slug).for_action(:create) }
-    # it { is_expected.to forbid_mass_assignment_of(:slug).for_action(:update) }
+  # it { is_expected.to forbid_mass_assignment_of(:publish) }
+  # it do
+  # is_expected.to forbid_mass_assignment_of(:publish).for_action(:create)
+  # end
+  # it do
+  # is_expected.to forbid_mass_assignment_of(:publish).for_action(:update)
+  # end
+  # it { is_expected.to forbid_mass_assignment_of(:slug) }
+  # it { is_expected.to permit_mass_assignment_of(:slug).for_action(:create) }
+  # it { is_expected.to forbid_mass_assignment_of(:slug).for_action(:update) }
   # end
 end

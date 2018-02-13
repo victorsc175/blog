@@ -40,5 +40,4 @@ describe PostPolicy do
     it { is_expected.to forbid_edit_and_update_actions }
     it { is_expected.to forbid_action(:destroy) }
   end
-
 end
